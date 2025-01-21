@@ -1,6 +1,6 @@
 {
   "name": "cui-solid-beeee",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "An UI component library and front-end solution based on solidjs",
   "type": "module",
   "author": "cqb325 (origin), Beeee0927 (fork)",
