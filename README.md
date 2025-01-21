@@ -1,5 +1,6 @@
 <h1>
-CUI-SOLID (forked from cqb325 by Beeee0927)
+CUI-SOLID<br />
+(forked from <a href="https://github.com/cqb325/cui-solid">cqb325/cui-solid</a> by Beeee0927)
     <h3>An UI component library and front-end solution based on solidjs</h3>
 </h1>
 
@@ -16,12 +17,12 @@ CUI-SOLID (forked from cqb325 by Beeee0927)
 
 ## Install
 
-    pnpm i cui-solid-beeee0927 cui-solid-icons
+    pnpm i cui-solid-beeee cui-solid-icons
 
 ## Use
 
     // in your entry file
-    import 'cui-solid/dist/styles/cui.css'
+    import 'cui-solid-beeee/dist/styles/cui.css'
     import 'cui-solid-icons/style.css'
 
 ## ChangeLog
