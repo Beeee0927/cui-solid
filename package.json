@@ -1,10 +1,10 @@
 {
-  "name": "cui-solid",
-  "version": "2.1.1",
+  "name": "cui-solid-beeee0927",
+  "version": "3.0.0",
   "description": "An UI component library and front-end solution based on solidjs",
   "type": "module",
-  "author": "cqb325",
-  "homepage": "https://cqb325.gitee.io/cui-solid-doc",
+  "author": "cqb325 (origin), Beeee0927 (fork)",
+  "homepage": "https://cui.cqb325.cn/",
   "main": "dist/cui.min.esm.js",
   "keywords": [
     "cui-solid",
@@ -16,16 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/cqb325/cui-solid"
+    "url": "https://github.com/Beeee0927/cui-solid"
   },
   "files": [
     "dist",
-    "src",
     "types"
   ],
-  "typings": "types/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
-    "start": "vite",
     "dev": "vite",
     "build": "npm run build:lib && npm run build:style",
     "build:lib": "vite build",
@@ -38,15 +36,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",
     "@types/tinycolor2": "^1.4.3",
-    "@typescript-eslint/eslint-plugin": "^6.4.0",
     "async-validator": "^4.2.5",
     "cui-solid-icons": "^1.0.8",
-    "eslint": "^8.0.1",
-    "eslint-config-standard-with-typescript": "^43.0.1",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-solid": "^0.13.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
