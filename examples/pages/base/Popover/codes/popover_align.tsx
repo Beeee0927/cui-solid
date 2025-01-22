@@ -47,4 +47,4 @@ export default `<Space dir="v" align="center">
             </Popover>
         </Space>
     </Space>
-</Space>`;
+</Space>`

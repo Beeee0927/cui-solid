@@ -3,4 +3,4 @@ export default `<div style={{height: '300px', border: '1px solid #ccc'}}>
         <Slot name="prev"><div>TOP</div></Slot>
         <Slot name="next"><div>BOTTOM</div></Slot>
     </Split>
-</div>`;
+</div>`

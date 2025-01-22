@@ -21,4 +21,4 @@ export default `<Space dir="v">
         <Tag theme='geekblue'>geekblue</Tag>
         <Tag theme='purple'>purple</Tag>
     </Space>
-</Space>`;
+</Space>`

@@ -1,1 +1,1 @@
-export default `<Exception type="deny"/>`;
+export default `<Exception type="deny"/>`

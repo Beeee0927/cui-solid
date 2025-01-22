@@ -5,4 +5,4 @@ export default `const [visible, setVisible] = createSignal(false);
 </Drawer>
 <Button type="primary" onClick={() => {
     setVisible(true);
-}}>打开</Button>`;
+}}>打开</Button>`

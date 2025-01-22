@@ -19,4 +19,4 @@ export default `const data = [
                 </List.Item>
         }}
     </For>
-</List>`;
+</List>`

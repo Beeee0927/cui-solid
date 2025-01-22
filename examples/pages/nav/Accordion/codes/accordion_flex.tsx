@@ -25,4 +25,4 @@ export default `<VView size="300px">
             <View class='layout-demo-header' size="64px" style={centerStyle}></View>
         </VView>
     </HView>
-</VView>`;
+</VView>`

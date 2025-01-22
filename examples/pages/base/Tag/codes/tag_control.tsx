@@ -5,4 +5,4 @@ export default `const [visible, setVisible] = createSignal(true);
     <Button size='small' onClick={() => {
         setVisible(!visible());
     }}>关闭/显示</Button>
-</Space>`;
+</Space>`

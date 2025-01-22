@@ -1,21 +1,24 @@
-import { useClassList } from "../utils/useProps"
-import { TimelineItem } from "./TimelineItem"
+import { useClassList } from '../utils/useProps'
+import { TimelineItem } from './TimelineItem'
 
 export interface TimelineProps {
-    children?: any,
-    classList?: any,
-    class?: string,
-    style?: any,
-    mode?: 'left'|'right'|'alternate'|'center'
+  children?: any
+  classList?: any
+  class?: string
+  style?: any
+  mode?: 'left' | 'right' | 'alternate' | 'center'
 }
 
-export function Timeline (props: TimelineProps) {
-    const classList = () => useClassList(props, 'cm-timeline', {
-        [`cm-timeline-${props.mode}`]: props.mode
+export function Timeline(props: TimelineProps) {
+  const classList = () =>
+    useClassList(props, 'cm-timeline', {
+      [`cm-timeline-${props.mode}`]: props.mode
     })
-    return <div classList={classList()} style={props.style}>
-        {props.children}
+  return (
+    <div classList={classList()} style={props.style}>
+      {props.children}
     </div>
+  )
 }
 
-Timeline.Item = TimelineItem;
+Timeline.Item = TimelineItem

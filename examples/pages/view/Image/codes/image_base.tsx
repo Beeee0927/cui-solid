@@ -30,4 +30,4 @@ import img10 from './10.jpg';
         <Image width={100} height={100} fit='scale-down' src={img1}/>
         <div>scale-down</div>
     </Col>
-</Row>`;
+</Row>`

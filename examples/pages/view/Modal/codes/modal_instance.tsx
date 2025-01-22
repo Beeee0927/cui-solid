@@ -33,4 +33,4 @@ export default `<Space dir="h">
             content: <div>确认信息</div>
         });
     }}>确认</Button>
-</Space>}`;
+</Space>}`

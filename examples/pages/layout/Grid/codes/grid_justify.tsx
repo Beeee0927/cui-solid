@@ -39,4 +39,4 @@ function ColText ({children, style}: any) {
         <Col grid={1/6}><ColText>1/6</ColText></Col>
         <Col grid={1/6}><ColText>1/6</ColText></Col>
     </Row>
-</Space>`;
+</Space>`

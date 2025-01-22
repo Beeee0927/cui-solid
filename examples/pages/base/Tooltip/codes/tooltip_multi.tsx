@@ -5,4 +5,4 @@ export default `<Space dir="h">
     </div>}>
         <span>show tips</span>
     </Tooltip>
-</Space>`;
+</Space>`

@@ -7,4 +7,4 @@ export default `<Space dir='h'>
             duration: 0
         })
     }}>可关闭</Button>
-</Space>`;
+</Space>`

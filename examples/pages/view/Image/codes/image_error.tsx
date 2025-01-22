@@ -25,4 +25,4 @@ const [src2, setSrc2] = createSignal('');
     <Button type='primary' onClick={() => {
         setSrc2(img1)
     }}>加载</Button>
-</Space>`;
+</Space>`

@@ -19,4 +19,4 @@ export default `const data = [{
 <div style={{height: "500px"}}>
     <IndexList data={data}></IndexList>
 </div>
-`;
+`

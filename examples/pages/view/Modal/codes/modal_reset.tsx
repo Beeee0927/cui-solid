@@ -8,4 +8,4 @@ export default `const [visible7, setVisible7] = createSignal(false);
     <div>modal 内容</div>
     <div>modal 内容</div>
     <div>modal 内容</div>
-</Modal>}`;
+</Modal>}`

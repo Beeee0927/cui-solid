@@ -131,14 +131,14 @@ export function Datepicker(props: DatepickerProps) {
             val[0] === undefined
               ? new Date()
               : val[0]
-              ? new Date(val[0])
-              : new Date()
+                ? new Date(val[0])
+                : new Date()
           next =
             val[1] === undefined
               ? new Date()
               : val[1]
-              ? new Date(val[1])
-              : new Date()
+                ? new Date(val[1])
+                : new Date()
         }
         if (type === 'month' && val instanceof Date) {
           prev = val

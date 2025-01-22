@@ -11,4 +11,4 @@ const [align, setAlign] = createSignal<'right'|'left'|'top'|'bottom'>('right');
     <Button type="primary" onClick={() => {
         setVisible2(true);
     }}>打开</Button>
-</Space>`;
+</Space>`

@@ -72,4 +72,4 @@ export default `<Space dir='v'>
             <div style={{width: '100px', background: 'rgba(200,200,200,0.3)', "line-height": '32px'}}>Block</div>
         </Space>
     </Space>
-</Space>`;
+</Space>`

@@ -1,1 +1,1 @@
-export default `<Exception type="500"/>`;
+export default `<Exception type="500"/>`

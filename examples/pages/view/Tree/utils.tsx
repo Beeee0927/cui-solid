@@ -1,17 +1,23 @@
-import type { TreeNode } from "@/components/Tree"
+import type { TreeNode } from '@/components/Tree'
 
 interface IGeneratorOptions {
-    treeDepth?: number
-    nodesPerLevel?: number
-    sameIdTitle?: boolean
-    inOrder?: boolean
-    forceString?: boolean
-    useNanoID?: boolean
+  treeDepth?: number
+  nodesPerLevel?: number
+  sameIdTitle?: boolean
+  inOrder?: boolean
+  forceString?: boolean
+  useNanoID?: boolean
 }
 
-const genRandomStr = ({ index, useNanoID }: { index?: number; useNanoID?: boolean }): string => {
-    const randomStr = Math.random().toString(36).substr(2, 5);
-    return index == null ? randomStr : `${randomStr}`
+const genRandomStr = ({
+  index,
+  useNanoID
+}: {
+  index?: number
+  useNanoID?: boolean
+}): string => {
+  const randomStr = Math.random().toString(36).substr(2, 5)
+  return index == null ? randomStr : `${randomStr}`
 }
 
 export default ({
@@ -20,7 +26,7 @@ export default ({
   sameIdTitle = false,
   inOrder = false,
   forceString = false,
-  useNanoID = false,
+  useNanoID = false
 }: IGeneratorOptions = {}): { data: TreeNode[]; total: number } => {
   const data: TreeNode[] = []
   let total = 0
@@ -33,12 +39,14 @@ export default ({
     for (let i: number = 0; i < len; i++) {
       let title = inOrder ? orderCount : genRandomStr({ index: orderCount })
       if (forceString) title = title.toString()
-      const id = sameIdTitle ? title : genRandomStr({ index: orderCount, useNanoID })
+      const id = sameIdTitle
+        ? title
+        : genRandomStr({ index: orderCount, useNanoID })
       const node = {
         title,
         id,
         children: []
-      } as unknown as TreeNode;
+      } as unknown as TreeNode
       root.push(node)
       total++
       orderCount++

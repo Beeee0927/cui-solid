@@ -21,4 +21,4 @@ export default `<Space dir="h">
             ]} closable max={2}/>
         </div>
     </Space>
-</Space>`;
+</Space>`

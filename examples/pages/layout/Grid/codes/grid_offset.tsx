@@ -12,4 +12,4 @@ function ColText ({children, style}: any) {
     <Row gutter={16} class='example-demo'>
         <Col grid={0.5} offset={0.25}><ColText>0.5 offset 0.25</ColText></Col>
     </Row>
-</Space>`;
+</Space>`

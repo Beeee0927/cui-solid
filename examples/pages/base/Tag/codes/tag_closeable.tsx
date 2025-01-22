@@ -3,4 +3,4 @@ export default `<Space dir="h">
     <Tag value={10} closable>Value</Tag>
     <Tag theme='primary' circle closable>Circle</Tag>
     <Tag theme='primary' closable avatar={<Avatar>U</Avatar>}>Avatar</Tag>
-</Space>`;
+</Space>`

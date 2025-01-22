@@ -3,4 +3,4 @@ export default `<Space dir="h">
     <Tag value={10}>Value</Tag>
     <Tag theme='primary' circle>Circle</Tag>
     <Tag theme='primary' avatar={<Avatar>U</Avatar>}>Avatar</Tag>
-</Space>`;
+</Space>`

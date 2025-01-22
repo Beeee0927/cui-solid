@@ -9,4 +9,4 @@ export default `<Space dir="v">
             <span>Click</span>
         </Popover>
     </div>
-</Space>`;
+</Space>`

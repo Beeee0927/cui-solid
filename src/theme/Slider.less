@@ -1,4 +1,4 @@
-.cm-slider{
+.cm-slider {
   position: relative;
   margin: 8px 6px;
   padding: 4px 0;
@@ -7,17 +7,17 @@
   list-style: none;
 
   &.cm-slider-hover,
-  &:hover{
+  &:hover {
     .cm-slider-rail {
       background-color: #e1e1e1;
     }
   }
 
-  &.cm-slider-disabled{
-    .cm-slider-track{
+  &.cm-slider-disabled {
+    .cm-slider-track {
       background-color: rgba(0, 0, 0, 0.25) !important;
     }
-    .cm-slider-handle{
+    .cm-slider-handle {
       border-color: rgba(0, 0, 0, 0.25) !important;
       background-color: #fff;
       cursor: not-allowed;
@@ -25,9 +25,8 @@
       box-shadow: none;
     }
   }
-  
 }
-.cm-slider-rail{
+.cm-slider-rail {
   position: absolute;
   left: 0;
   right: 7px;
@@ -37,7 +36,7 @@
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
-.cm-slider-track{
+.cm-slider-track {
   position: absolute;
   height: 4px;
   border-radius: 4px;
@@ -52,7 +51,7 @@
   margin-left: -10px;
   margin-top: -8px;
 }
-.cm-slider-handle{
+.cm-slider-handle {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -64,24 +63,26 @@
   background-color: #fff;
   -webkit-transition: border-color 0.3s;
   transition: border-color 0.3s;
-  box-shadow: 0 4px 6px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.3);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(0, 0, 0, 0.3);
   &:focus {
     border-color: var(--cui-color-primary);
   }
 }
-.cm-slider-marks{
+.cm-slider-marks {
   position: absolute;
   top: 14px;
   left: 0;
   right: 7px;
 }
-.cm-slider-mark{
+.cm-slider-mark {
   position: absolute;
   display: inline-block;
   text-align: center;
   transform: translate(-50%);
 }
-.cm-slider-steps{
+.cm-slider-steps {
   position: absolute;
   left: 0;
   right: 7px;
@@ -89,7 +90,7 @@
   background: transparent;
   cursor: pointer;
 }
-.cm-slider-step{
+.cm-slider-step {
   position: absolute;
   display: inline-block;
   margin-left: -2px;
@@ -99,15 +100,15 @@
   cursor: pointer;
   border-radius: 50%;
   vertical-align: middle;
-  &.cm-slider-step-active{
+  &.cm-slider-step-active {
     border-color: #8cc8ff;
   }
 }
 
-.cm-form-group-slider{
+.cm-form-group-slider {
+  width: 100%;
+  .cm-tooltip-helper {
     width: 100%;
-    .cm-tooltip-helper{
-        width: 100%;
-        vertical-align: middle;
-    }
+    vertical-align: middle;
+  }
 }

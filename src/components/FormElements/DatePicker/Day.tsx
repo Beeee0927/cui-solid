@@ -47,8 +47,8 @@ export function Day(props: any) {
     props.type === 'dateRange' || props.type === 'dateTimeRange'
       ? false
       : props.value && props.value instanceof Date && props.day
-      ? props.value.toLocaleDateString() === props.day.toLocaleDateString()
-      : false
+        ? props.value.toLocaleDateString() === props.day.toLocaleDateString()
+        : false
   let disabled =
     props.day && ctx && ctx.disabledDate && ctx.disabledDate(props.day)
   if (!(props.month && props.day && sameMonth(props.month, props.day))) {

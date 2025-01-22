@@ -26,4 +26,4 @@ const [src1, setSrc1] = createSignal('');
     <Button type='primary' onClick={() => {
         setSrc1(img10)
     }}>加载</Button>
-</Space>`;
+</Space>`

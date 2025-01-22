@@ -31,4 +31,4 @@ export default `const [activeKey, setActiveKey] = createSignal(['a2']);
             <View class='layout-demo-header' size="64px" style={centerStyle}></View>
         </VView>
     </HView>
-</VView>`;
+</VView>`

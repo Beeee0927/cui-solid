@@ -13,4 +13,4 @@ export default `<Space dir='h'>
             message.close(key);
         }, 4000)
     }}>加载</Button>
-</Space>`;
+</Space>`

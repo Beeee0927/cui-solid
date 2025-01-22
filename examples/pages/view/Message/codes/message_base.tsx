@@ -11,4 +11,4 @@ export default `<Space dir='h'>
     <Button type='primary' onClick={() => {
         message.warning('需要数字类型')
     }}>警告</Button>
-</Space>`;
+</Space>`

@@ -11,4 +11,4 @@ export default `<Space dir="v">
         <Button type='link'>LINK</Button>
         <Button type='dashed'>Dashed BUTTON</Button>
     </Space>
-</Space>`;
+</Space>`

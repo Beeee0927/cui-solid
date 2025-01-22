@@ -1,9 +1,9 @@
-import { createMemo, createSignal } from "solid-js";
-import { createMutable } from "solid-js/store";
+import { createMemo, createSignal } from 'solid-js'
+import { createMutable } from 'solid-js/store'
 
 export interface Position {
-    x: number,
-    y: number
+  x: number
+  y: number
 }
 
 export interface UseSwipeOptions {
@@ -25,7 +25,11 @@ export interface UseSwipeOptions {
   /**
    * Callback on swipe end.
    */
-  onSwipeEnd?: (e: PointerEvent, direction: 'left'|'right'|'up'|'down'|'none', duration?: number) => void
+  onSwipeEnd?: (
+    e: PointerEvent,
+    direction: 'left' | 'right' | 'up' | 'down' | 'none',
+    duration?: number
+  ) => void
 
   /**
    * Pointer types to listen to.
@@ -35,110 +39,109 @@ export interface UseSwipeOptions {
   pointerTypes?: any[]
 }
 
-export function useSwipe (target: any, options: UseSwipeOptions ) {
-    const {
-        threshold = 50,
-        onSwipe,
-        onSwipeEnd,
-        onSwipeStart,
-    } = options;
+export function useSwipe(target: any, options: UseSwipeOptions) {
+  const { threshold = 50, onSwipe, onSwipeEnd, onSwipeStart } = options
 
-    const posStart = createMutable<Position>({ x: 0, y: 0 })
-    const updatePosStart = (x: number, y: number) => {
-        posStart.x = x
-        posStart.y = y
+  const posStart = createMutable<Position>({ x: 0, y: 0 })
+  const updatePosStart = (x: number, y: number) => {
+    posStart.x = x
+    posStart.y = y
+  }
+
+  const posEnd = createMutable<Position>({ x: 0, y: 0 })
+  const updatePosEnd = (x: number, y: number) => {
+    posEnd.x = x
+    posEnd.y = y
+  }
+
+  const distanceX = createMemo(() => posStart.x - posEnd.x)
+  const distanceY = createMemo(() => posStart.y - posEnd.y)
+
+  const { max, abs } = Math
+  const isThresholdExceeded = createMemo(
+    () => max(abs(distanceX()), abs(distanceY())) >= threshold
+  )
+  const [isSwiping, setIsSwiping] = createSignal(false)
+  const [isPointerDown, setIsPointerDown] = createSignal(false)
+  const [duration, setDuration] = createSignal(0)
+  let startT: DOMHighResTimeStamp
+
+  const direction = createMemo(() => {
+    if (!isThresholdExceeded()) return 'none'
+
+    if (abs(distanceX()) > abs(distanceY())) {
+      return distanceX() > 0 ? 'left' : 'right'
     }
+    return distanceY() > 0 ? 'up' : 'down'
+  })
 
-    const posEnd = createMutable<Position>({ x: 0, y: 0 })
-    const updatePosEnd = (x: number, y: number) => {
-        posEnd.x = x
-        posEnd.y = y
-    }
+  const eventIsAllowed = (e: PointerEvent): boolean => {
+    const isReleasingButton = e.buttons === 0
+    const isPrimaryButton = e.buttons === 1
+    return (
+      options.pointerTypes?.includes(e.pointerType) ??
+      (isReleasingButton || isPrimaryButton) ??
+      true
+    )
+  }
 
-    const distanceX = createMemo(() => posStart.x - posEnd.x)
-    const distanceY = createMemo(() => posStart.y - posEnd.y)
+  const handlePointerDown = (e: PointerEvent) => {
+    if (!eventIsAllowed(e)) return
+    e.preventDefault()
+    setIsPointerDown(true)
+    startT = performance.now()
 
-    const { max, abs } = Math
-    const isThresholdExceeded = createMemo(() => max(abs(distanceX()), abs(distanceY())) >= threshold)
-    const [isSwiping, setIsSwiping] = createSignal(false)
-    const [isPointerDown, setIsPointerDown] = createSignal(false)
-    const [duration, setDuration] = createSignal(0)
-    let startT: DOMHighResTimeStamp;
+    // Disable scroll on for TouchEvents
+    target?.style?.setProperty('touch-action', 'none')
+    // Future pointer events will be retargeted to target until pointerup/cancel
+    const eventTarget = e.target as HTMLElement | undefined
+    eventTarget?.setPointerCapture(e.pointerId)
+    const { clientX: x, clientY: y } = e
+    updatePosStart(x, y)
+    updatePosEnd(x, y)
+    onSwipeStart?.(e)
+  }
 
-    const direction = createMemo(() => {
-        if (!isThresholdExceeded()) return 'none'
+  const handlePointerMove = (e: PointerEvent) => {
+    if (!eventIsAllowed(e)) return
+    if (!isPointerDown()) return
 
-        if (abs(distanceX()) > abs(distanceY())) {
-            return distanceX() > 0 ? 'left' : 'right'
-        }
-        return distanceY() > 0 ? 'up' : 'down'
-    })
+    const { clientX: x, clientY: y } = e
+    updatePosEnd(x, y)
+    if (!isSwiping() && isThresholdExceeded()) setIsSwiping(true)
+    if (isSwiping()) onSwipe?.(e)
+  }
 
-    const eventIsAllowed = (e: PointerEvent): boolean => {
-        const isReleasingButton = e.buttons === 0
-        const isPrimaryButton = e.buttons === 1
-        return (
-            options.pointerTypes?.includes(e.pointerType) ?? (isReleasingButton || isPrimaryButton) ?? true
-        )
-    }
+  const handlePointerUp = (e: PointerEvent) => {
+    if (!eventIsAllowed(e)) return
+    const duration = performance.now() - startT
+    setDuration(duration)
 
-    const handlePointerDown = (e: PointerEvent) => {
-        if (!eventIsAllowed(e)) return
-        e.preventDefault();
-        setIsPointerDown(true);
-        startT = performance.now();
+    if (isSwiping()) onSwipeEnd?.(e, direction(), duration)
 
-        // Disable scroll on for TouchEvents
-        target?.style?.setProperty('touch-action', 'none');
-        // Future pointer events will be retargeted to target until pointerup/cancel
-        const eventTarget = e.target as HTMLElement | undefined
-        eventTarget?.setPointerCapture(e.pointerId)
-        const { clientX: x, clientY: y } = e
-        updatePosStart(x, y)
-        updatePosEnd(x, y)
-        onSwipeStart?.(e)
-    }
+    setIsPointerDown(false)
+    setIsSwiping(false)
+    target?.style?.setProperty('touch-action', 'initial')
+  }
 
-    const handlePointerMove = (e: PointerEvent) => {
-        if (!eventIsAllowed(e)) return
-        if (!isPointerDown()) return
+  target.addEventListener('pointerdown', handlePointerDown)
+  target.addEventListener('pointermove', handlePointerMove)
+  target.addEventListener('pointerup', handlePointerUp)
 
-        const { clientX: x, clientY: y } = e
-        updatePosEnd(x, y)
-        if (!isSwiping() && isThresholdExceeded()) setIsSwiping(true)
-        if (isSwiping()) onSwipe?.(e)
-    }
+  const stop = () => {
+    target.removeEventListener('pointerdown', handlePointerDown)
+    target.removeEventListener('pointermove', handlePointerMove)
+    target.removeEventListener('pointerup', handlePointerUp)
+  }
 
-    const handlePointerUp = (e: PointerEvent) => {
-        if (!eventIsAllowed(e)) return
-        const duration = performance.now() - startT;
-        setDuration(duration);
-
-        if (isSwiping()) onSwipeEnd?.(e, direction(), duration)
-
-        setIsPointerDown(false)
-        setIsSwiping(false)
-        target?.style?.setProperty('touch-action', 'initial')
-    }
-
-    target.addEventListener('pointerdown', handlePointerDown);
-    target.addEventListener('pointermove', handlePointerMove);
-    target.addEventListener('pointerup', handlePointerUp)
-
-    const stop = () => {
-        target.removeEventListener('pointerdown', handlePointerDown);
-        target.removeEventListener('pointermove', handlePointerMove);
-        target.removeEventListener('pointerup', handlePointerUp)
-    }
-
-    return {
-        isSwiping,
-        direction,
-        posStart,
-        posEnd,
-        distanceX,
-        distanceY,
-        duration,
-        stop
-    }
+  return {
+    isSwiping,
+    direction,
+    posStart,
+    posEnd,
+    distanceX,
+    distanceY,
+    duration,
+    stop
+  }
 }

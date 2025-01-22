@@ -12,4 +12,4 @@ const [fullScreen, setFullScreen] = createSignal(false);
     <div>modal 内容</div>
     <div>modal 内容</div>
     <div>modal 内容</div>
-</Modal>}`;
+</Modal>}`

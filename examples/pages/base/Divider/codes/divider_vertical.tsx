@@ -4,4 +4,4 @@ export default `<section>
     <span>香蕉</span>
     <Divider dir='v' />
     <span>芒果</span>
-</section>`;
+</section>`

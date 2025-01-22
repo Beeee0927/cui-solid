@@ -29,4 +29,4 @@ const [visible, setVisible] = createSignal(false);
             img10,
         ]
     } />
-</Space>`;
+</Space>`

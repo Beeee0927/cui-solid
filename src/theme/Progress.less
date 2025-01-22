@@ -1,4 +1,4 @@
-.cm-progress{
+.cm-progress {
   position: relative;
   width: 100%;
   display: inline-flex;
@@ -6,42 +6,42 @@
   font-size: 0px;
   color: var(--cui-color-text-2);
 
-  .cm-progress-outer{
+  .cm-progress-outer {
     flex: 1;
     display: flex;
   }
-  .cm-progress-inner{
+  .cm-progress-inner {
     display: inline-block;
     width: 100%;
     background-color: var(--cui-color-fill-0);
     border-radius: 100px;
     vertical-align: middle;
   }
-  .cm-progress-info{
+  .cm-progress-info {
     display: inline-block;
     margin-left: 8px;
     font-family: tahoma;
     font-size: 12px;
   }
-  &.cm-progress-line{
-      svg{
-          width: 12px;
-          height: 12px;
-      }
+  &.cm-progress-line {
+    svg {
+      width: 12px;
+      height: 12px;
+    }
   }
 
-  .cm-progress-bar{
+  .cm-progress-bar {
     border-radius: 100px;
     background-color: var(--cui-primary-color);
-    -webkit-transition: all .4s cubic-bezier(.08,.82,.17,1) 0s;
-    transition: all .4s cubic-bezier(.08,.82,.17,1) 0s;
+    -webkit-transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
+    transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
     position: relative;
     height: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: flex-end;
     .cm-progress-info {
-      color: #fff!important;
+      color: #fff !important;
       margin-right: 10px;
     }
   }
@@ -49,11 +49,11 @@
     stroke: var(--cui-primary-color);
   }
 
-  &.cm-progress-finished{
-    .cm-progress-bar{
+  &.cm-progress-finished {
+    .cm-progress-bar {
       background-color: rgb(var(--cui-green-4));
     }
-    .cm-progress-info{
+    .cm-progress-info {
       color: rgb(var(--cui-green-4));
     }
     .cm-progress-bar-path {
@@ -61,11 +61,11 @@
     }
   }
 
-  &.cm-progress-error{
-    .cm-progress-bar{
+  &.cm-progress-error {
+    .cm-progress-bar {
       background-color: rgb(var(--cui-red-4));
     }
-    .cm-progress-info{
+    .cm-progress-info {
       color: rgb(var(--cui-red-4));
     }
     .cm-progress-bar-path {
@@ -73,10 +73,10 @@
     }
   }
 
-  &.cm-progress-active{
-    .cm-progress-bar{
-      &:before{
-        content: "";
+  &.cm-progress-active {
+    .cm-progress-bar {
+      &:before {
+        content: '';
         opacity: 0;
         position: absolute;
         top: 0;
@@ -85,26 +85,28 @@
         bottom: 0;
         background: #fff;
         border-radius: 10px;
-        -webkit-animation: cm-progress-active 2.4s cubic-bezier(.23,1,.32,1) infinite;
-        animation: cm-progress-active 2.4s cubic-bezier(.23,1,.32,1) infinite;
+        -webkit-animation: cm-progress-active 2.4s
+          cubic-bezier(0.23, 1, 0.32, 1) infinite;
+        animation: cm-progress-active 2.4s cubic-bezier(0.23, 1, 0.32, 1)
+          infinite;
       }
     }
   }
 
-  &.cm-progress-circle{
+  &.cm-progress-circle {
     width: auto;
-    .cm-progress-outer{
+    .cm-progress-outer {
       width: auto;
       padding-right: 0;
       margin-right: 0;
     }
-    .cm-progress-inner{
+    .cm-progress-inner {
       position: relative;
       line-height: 1;
       font-size: 25px;
       background-color: transparent;
     }
-    .cm-progress-info{
+    .cm-progress-info {
       display: block;
       position: absolute;
       width: 100%;
@@ -124,10 +126,12 @@
     }
   }
 
-  .cm-progress-bar-path{
-    transition: stroke-dashoffset 0.3s ease 0s, stroke 0.3s ease;
+  .cm-progress-bar-path {
+    transition:
+      stroke-dashoffset 0.3s ease 0s,
+      stroke 0.3s ease;
   }
-  &.cm-progress-hide-info{
+  &.cm-progress-hide-info {
     .cm-progress-info {
       display: none;
     }
@@ -154,34 +158,34 @@
 
 @-webkit-keyframes cm-progress-active {
   0% {
-    opacity: .1;
-    width: 0
+    opacity: 0.1;
+    width: 0;
   }
 
   20% {
-    opacity: .5;
-    width: 0
+    opacity: 0.5;
+    width: 0;
   }
 
   to {
     opacity: 0;
-    width: 100%
+    width: 100%;
   }
 }
 
 @keyframes cm-progress-active {
   0% {
-    opacity: .1;
-    width: 0
+    opacity: 0.1;
+    width: 0;
   }
 
   20% {
-    opacity: .5;
-    width: 0
+    opacity: 0.5;
+    width: 0;
   }
 
   to {
     opacity: 0;
-    width: 100%
+    width: 100%;
   }
 }

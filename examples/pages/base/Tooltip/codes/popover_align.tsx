@@ -49,4 +49,4 @@ export default `const style = {width: '120px', 'text-align': 'center'}
             </Tooltip>
         </Space>
     </Space>
-</Space>`;
+</Space>`

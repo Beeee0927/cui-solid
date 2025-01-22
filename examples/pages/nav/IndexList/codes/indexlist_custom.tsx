@@ -26,4 +26,4 @@ export default `const data = [{
         console.log(v);
     }}></IndexList>
 </div>
-`;
+`

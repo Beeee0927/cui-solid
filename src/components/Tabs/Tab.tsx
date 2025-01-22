@@ -1,4 +1,4 @@
-import type { Component, JSXElement } from "solid-js";
+import type { Component, JSXElement } from 'solid-js'
 // type TabProps = {
 //     children?: any,
 //     title?: any,
@@ -33,15 +33,14 @@ import type { Component, JSXElement } from "solid-js";
 //     </Show>
 // }
 
-
 export interface TabProps {
-	children: JSXElement,
-    title?: any,
-    name: string,
-    disabled?: boolean
-    closeable?: boolean,
-    icon?: any
+  children: JSXElement
+  title?: any
+  name: string
+  disabled?: boolean
+  closeable?: boolean
+  icon?: any
 }
 export const Tab: Component<TabProps> = (props) => {
-	return props as unknown as JSXElement
+  return props as unknown as JSXElement
 }

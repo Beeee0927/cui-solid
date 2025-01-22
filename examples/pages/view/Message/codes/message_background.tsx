@@ -23,4 +23,4 @@ export default `<Space dir='h'>
             background: true,
         })
     }}>警告</Button>
-</Space>`;
+</Space>`

@@ -28,4 +28,4 @@ const verticalUrlList = [
             return <Image src={url} width={120} maskClosable={false} height={80} fit="contain" preview previewIndex={index()} previewList={verticalUrlList}/>
         }}
     </For>
-</Space>`;
+</Space>`

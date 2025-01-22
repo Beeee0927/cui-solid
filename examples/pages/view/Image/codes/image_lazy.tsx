@@ -30,4 +30,4 @@ const verticalUrlList = [
             }}
         </For>
     </div>
-</Space>`;
+</Space>`

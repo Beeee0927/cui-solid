@@ -8,4 +8,4 @@ export default `<div style={{height: '300px', border: '1px solid #ccc'}}>
         </Slot>
         <Slot name="next"><div>Right</div></Slot>
     </Split>
-</div>`;
+</div>`

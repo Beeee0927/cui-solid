@@ -20,4 +20,4 @@ export default `<HView class="components-layout-demo" size="450px">
         <View style={centerStyle}></View>
         <View class='layout-demo-header' size="64px" style={centerStyle}></View>
     </VView>
-</HView>`;
+</HView>`

@@ -33,4 +33,4 @@ import img4 from './4.jpg';
             setIndex((index() + 1) % 4)
         }}>Next</Button>
     </div>
-</Space>`;
+</Space>`
